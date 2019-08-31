@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  app:
+    image: node:12.4.0-alpine
+    working_dir: /home/node/app
+    volumes:
+      - ./app:/home/node/app
+      - ./sock:/run/postgresql
+    ports:
+      - 9000:9000
+    depends_on:
+      - db
+    command: ["yarn", "seed"]
+
+  db:
+    image: postgres:11.5-alpine
+    volumes:
+      - ./sock:/run/postgresql
+    ports:
+      - 5432:5432 # for manual db debug via psql
+    environment:
+      POSTGRES_USER: apitest
+      POSTGRES_PASSWORD: apitest
+      POSTGRES_DB: apitest

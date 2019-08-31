@@ -1,0 +1,27 @@
+{
+  "name": "api_test",
+  "version": "0.1.0",
+  "description": "Test task for hannyfeo@gmail.com",
+  "main": "main.js",
+  "author": "PsykeSPB@gmail.com",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "nodemon -r module-alias/register main.js",
+    "seed": "node -r module-alias/register seed.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "module-alias": "^2.2.1",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "_moduleAliases": {
+    "app": "."
+  }
+}
